@@ -1,0 +1,257 @@
+@import url("http://fonts.cdnfonts.com/css/robert-sans");
+@import url("http://fonts.cdnfonts.com/css/cq-mono");
+
+:root {
+  --bg: transparent;
+  --dark: #23272a;
+  --secondary: #1d2e68;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  font-size: 16px;
+}
+.loader {
+  height: 100rem;
+  width: 100rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  /* background-color: var(--dark); */
+  z-index: 100;
+}
+.hidden {
+  opacity: 0;
+}
+.anim::after {
+  content: "";
+  position: absolute;
+  height: 200%;
+  width: 200%;
+  background-color: var(--dark);
+  bottom: -50%;
+  left: -50%;
+  border-radius: 45%;
+  z-index: 300;
+  animation: poo 1s ease-out forwards;
+}
+.bg {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  background: url("./images/bg.png");
+  background-size: cover;
+  z-index: 80;
+}
+.bird {
+  /* background: url(); */
+  position: absolute;
+  top: 10%;
+  height: 12rem;
+  width: auto;
+  animation: bird-flap 30s linear infinite;
+}
+.bird img {
+  height: 100%;
+  width: 6rem;
+  display: inline-block;
+}
+@keyframes poo {
+  0% {
+    transform: translateY(100%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0%) rotate(500deg);
+  }
+}
+@keyframes bird-flap {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -10%;
+  }
+}
+
+main {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  height: 25rem;
+  width: 27rem;
+  background-color: var(--dark);
+  border-radius: 5px;
+  box-shadow: 0px 3px 3px var(--dark);
+  /* opacity: 0.9; */
+  z-index: 100;
+  padding: 2.2rem;
+  opacity: 0.95;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.button {
+  position: relative;
+  font-weight: 500;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+  background-color: transparent;
+  /* border: 3px solid white; */
+  font-family: "Robert Sans";
+  height: 4rem;
+  width: 8rem;
+  border: none;
+  z-index: 110;
+  /* text-transform: uppercase; */
+}
+.button::before,
+.button::after {
+  content: "";
+  position: absolute;
+  height: calc(100% - 6px);
+  width: calc(100% - 6px);
+  top: 0%;
+  left: 0%;
+  border: 3px solid white;
+  z-index: 109;
+  transition: all 0.2s linear;
+}
+.button:hover::before {
+  transform: translate(-0.3rem, -0.3rem);
+}
+.button:hover::after {
+  transform: translate(0.3rem, 0.3rem);
+}
+.inp_div {
+  position: relative;
+}
+.pp {
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  outline: none;
+  border: 3px solid white;
+  padding: 1rem;
+  background: none;
+  border-radius: 3px;
+  color: white;
+}
+.name_lab {
+  cursor: text;
+  background: var(--dark);
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  color: white;
+  font-family: "CQ Mono", sans-serif;
+  transition: all 0.1s linear;
+}
+
+.pp:focus ~ .name_lab,
+.pp:not(:placeholder-shown).pp:not(:focus) ~ .name_lab {
+  transform: translatey(-1.5rem);
+  font-size: 1rem;
+}
+
+.inp_div_rad {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  /* width: 70%; */
+  font-size: 1.5rem;
+  font-family: "CQ Mono", sans-serif;
+}
+.inp_div_rad input {
+  display: none;
+}
+.rad_lab {
+  margin-right: 1rem;
+}
+.rad_lab span {
+  display: inline-block;
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
+  border: 6px solid white;
+  transform: translatey(5px);
+}
+.radio {
+  background-color: var(--dark);
+  padding: 3px;
+  margin-left: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+input[type="radio"]:checked ~ .rad_lab .radio::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #7289da;
+}
+.gender {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.sport {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
+  font-family: "CQ Mono", sans-serif;
+  color: white;
+  width: 60%;
+  justify-content: space-between;
+}
+.sport__group {
+  position: relative;
+}
+.sports_lab::before {
+  content: "";
+  position: absolute;
+  background: url("./images/check.png");
+  background-size: contain;
+  height: 1.3rem;
+  width: 1.3rem;
+  left: -1rem;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+.spck:checked + .sports_lab::before {
+  opacity: 1;
+}
+
+/* .sports_lab::after {
+  content: "";
+  position: absolute;
+  opacity: 1;
+  height: 1.3rem;
+  width: 1.3rem;
+  left: -1rem;
+  border: 3px solid white;
+  border-radius: 10%;
+} */
