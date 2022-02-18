@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      const submitF = () => {
+        document.querySelector("#form").submit();
+      };
+      window.onload = function () {
+        const button = document
+          .querySelector("#form")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+            document.querySelector(".button").classList.add("hidden");
+            document.querySelector(".loader").classList.add("anim");
+            setTimeout(submitF, 1500);
+          });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="loader"></div>
+    <div class="bg">
+      <div class="bird"><img src="./images/birb.gif" alt="" /></div>
+    </div>
+    <main>
+      <div class="form">
+        <form id="form" method="get" action="result.php">
+          <div class="inp_div">
+            <input
+              type="text"
+              class="text pp"
+              name="name"
+              id="name"
+              placeholder=" "
+              required
+            /><label class="name_lab" for="name">Name</label>
+          </div>
+          <div class="gender">
+            <div class="inp_div_rad">
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                id="male"
+                required
+              />
+              <label class="rad_lab" for="male"
+                >Male<span class="radio"></span
+              ></label>
+            </div>
+            <div class="inp_div_rad">
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                id="female"
+                required
+              />
+              <label class="rad_lab" for="female"
+                >Female<span class="radio"></span
+              ></label>
+            </div>
+          </div>
+          <div class="sport">
+            <div class="sport__group">
+              <input
+                type="checkbox"
+                id="cricket"
+                name="sports[]"
+                value="cricket"
+                class="hidden spck"
+              />
+              <label for="cricket" class="sports_lab">Cricket</label>
+            </div>
+            <div class="sport__group">
+              <input
+                type="checkbox"
+                id="football"
+                name="sports[]"
+                value="football"
+                class="hidden spck"
+              />
+              <label for="football" class="sports_lab">Football</label>
+            </div>
+          </div>
+          <div class="inp_div">
+            <input
+              type="email"
+              class="text pp"
+              name="email"
+              id="email"
+              placeholder=" "
+              required
+            /><label class="name_lab" for="email">Email</label>
+          </div>
+          <button class="button" type="submit">SUBMIT</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
