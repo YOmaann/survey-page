@@ -233,7 +233,7 @@ input[type="radio"]:checked ~ .rad_lab .radio::after {
 .sports_lab::before {
   content: "";
   position: absolute;
-  background: url("./images/check.png");
+  background: url("../images/check.png");
   background-size: contain;
   height: 1.3rem;
   width: 1.3rem;
