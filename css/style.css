@@ -54,6 +54,7 @@ body {
 }
 .bird {
   /* background: url(); */
+  user-select: none;
   position: absolute;
   top: 10%;
   height: 12rem;
